@@ -1,0 +1,1 @@
+# Dockerized GeoServer with GDAL 2.x
