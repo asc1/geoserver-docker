@@ -23,4 +23,5 @@ while read e; do
     BUILD_ARGS="${BUILD_ARGS} --build-arg $e";
 done <env
 
-docker build --rm -t local/geoserver:${GEOSERVER_VERSION} ${BUILD_ARGS} .
+docker build --rm --target=builder   -t local/gdal-builder:${GDAL_VERSION} ${BUILD_ARGS} . 
+docker build --rm --target=geoserver -t local/geoserver:${GEOSERVER_VERSION} ${BUILD_ARGS} .

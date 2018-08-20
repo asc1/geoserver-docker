@@ -19,7 +19,7 @@ COPY assets/build_gdal.sh /workspace/
 RUN /workspace/build_gdal.sh
    
 
-FROM centos:7
+FROM centos:7 as geoserver
 ARG GDAL_VERSION 
 ARG GEOSERVER_VERSION 
 ARG TOMCAT_VERSION
