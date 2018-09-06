@@ -19,7 +19,8 @@ COPY assets/blobs/MrSID_DSDK-${MRSID_VERSION}.tar.gz /workspace/archive/
 COPY assets/build_gdal.sh /workspace/
 
 RUN /workspace/build_gdal.sh
-   
+ENV PATH="/opt/gdal/bin:${PATH}" 
+CMD [ "/bin/bash" ]
 
 FROM centos:7 as geoserver
 ARG GDAL_VERSION 

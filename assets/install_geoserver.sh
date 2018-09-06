@@ -11,7 +11,7 @@ chown -R tomcat:tomcat ${TOMCAT_HOME}
 echo "Finished Tomcat Install (${TOMCAT_VERSION})"
 
 echo "Installing Tomcat (${TOMCAT_VERSION})"
-echo "/opt/gdal/lib/" > /etc/ld.conf.d/gdal-lib.conf
+echo "/opt/gdal/lib/" > /etc/ld.so.conf.d/gdal-lib.conf
 unzip -n ${BUILD}/geoserver-${GEOSERVER_VERSION}-war.zip -d ${BUILD}/ geoserver.war
 mkdir -p ${GEOSERVER_DATA_DIR} ${GEOSERVER_DATA} ${BUILD}/geoserver
 cd ${BUILD}/geoserver
