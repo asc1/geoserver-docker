@@ -2,6 +2,7 @@ FROM centos:7 as builder
 
 ARG GDAL_VERSION
 ARG MRSID_VERSION
+ARG OPENJPEG_VERSION
 
 RUN set -x && \
 	yum install -y epel-release && \
@@ -12,10 +13,11 @@ RUN set -x && \
 
 RUN set -x && \
     yum groupinstall -y "Development Tools" && \
-    yum install -y postgresql96-devel libcurl-devel libsqlite3x-devel openssl-devel libxml2-devel proj49-devel python-devel ant
+    yum install -y postgresql96-devel libcurl-devel libsqlite3x-devel openssl-devel libxml2-devel proj49-devel python-devel ant cmake
 
 COPY assets/blobs/gdal-${GDAL_VERSION}.tar.gz /workspace/archive/
 COPY assets/blobs/MrSID_DSDK-${MRSID_VERSION}.tar.gz /workspace/archive/
+COPY assets/blobs/openjpeg-${OPENJPEG_VERSION}.tar.gz /workspace/archive/
 COPY assets/build_gdal.sh /workspace/
 
 RUN /workspace/build_gdal.sh
